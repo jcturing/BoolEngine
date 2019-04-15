@@ -1,0 +1,8 @@
+Debug
+resources
+main.cpp
+*.filters
+*.user
+*.vcxproj
+Pixeled.ttf
+Pac-Man_AnimationSheet.png
