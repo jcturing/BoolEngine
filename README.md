@@ -1,2 +1,2 @@
 # BoolEngine
-Simple Game Engine based on Allegro
+A simple Game Engine based on Allegro.
