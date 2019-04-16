@@ -28,10 +28,10 @@ bool collisionPixel(ALLEGRO_BITMAP *image, float posx, float posy, ALLEGRO_BITMA
 		return false;
 	}
 	else {
-		top = max(posy, sec_posy);
-		bottom = min(posy + al_get_bitmap_height(image), sec_posy + al_get_bitmap_height(sec_image));
-		left = max(posx, sec_posx);
-		right = min(posx + al_get_bitmap_width(image), sec_posx + al_get_bitmap_width(sec_image));
+		top = max_equal(posy, sec_posy);
+		bottom = min_equal(posy + al_get_bitmap_height(image), sec_posy + al_get_bitmap_height(sec_image));
+		left = max_equal(posx, sec_posx);
+		right = min_equal(posx + al_get_bitmap_width(image), sec_posx + al_get_bitmap_width(sec_image));
 
 		for (int i = top; i < bottom; i++) {
 			for (int j = left; j < right; j++) {
@@ -49,12 +49,12 @@ bool collisionPixel(ALLEGRO_BITMAP *image, float posx, float posy, ALLEGRO_BITMA
 	return false;
 }
 
-float max(float x, float y) {
+float max_equal(float x, float y) {
 	if (x >= y) return x;
 	else return y;
 }
 
-float min(float x, float y) {
+float min_equal(float x, float y) {
 	if (x <= y) return x;
 	else return y;
 }

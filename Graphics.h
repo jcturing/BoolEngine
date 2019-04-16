@@ -45,6 +45,10 @@ void drawSprite(ALLEGRO_BITMAP *image, float posx, float posy, float centerx, fl
 //Loads and draws a tinted, rotated and scaled sprite | PARAMETERS: Sprite, Print position, color, center of rotation, angle, scale of width and scale of height.
 void drawSprite(ALLEGRO_BITMAP *image, float posx, float posy, ALLEGRO_COLOR tint, float centerx, float centery, float angle, float swidth, float sheight);
 
+//Operations with sprites
+float getSpriteWidth(ALLEGRO_BITMAP *image);
+float getSpriteHeight(ALLEGRO_BITMAP *image);
+
 //Destroying sprites
 //Destroys the sprite, freeing al the memmory and resources used by it, also lets the pointer to nullptr | PARAMETERS: Sprite.
 void destroySprite(ALLEGRO_BITMAP * &image);
@@ -69,7 +73,7 @@ void destroyFont(ALLEGRO_FONT * &font);
 //Shows in the displays the backbuffer (everything drawed) and then clears the entire backbuffer.
 void showScreen(ALLEGRO_COLOR back_color);
 //Shows in the displays the backbuffer (everything drawed) and then clears the backbuffer of the clipping rectangle.
-void showScreen(ALLEGRO_COLOR back_color, int x, int y, int width, int height);
+void showScreen(ALLEGRO_COLOR back_color, int x, int y, int width, int height, int SCREEN_WIDTH, int SCREEN_HEIGHT);
 
 
 #endif

@@ -18,7 +18,7 @@
 #include "Collision.h"
 #include "Control.h"
 #include "Graphics.h"
-#include "Sound.h"
+#include "Audio.h"
 
 //GENERAL CONSTANTS
 const int FPS = 60;

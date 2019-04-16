@@ -13,10 +13,10 @@ void loadSprite(ALLEGRO_BITMAP * &image, const std::string file) {
 
 void loadSprite(std::vector<ALLEGRO_BITMAP*> &tImage, std::string directory, int width_num, int height_num) {
 	ALLEGRO_PATH * path = al_get_standard_path(ALLEGRO_RESOURCES_PATH);
-	//al_append_path_component(path, "Resources");
-	//al_append_path_component(path, "Animations");
-	//al_change_directory(al_path_cstr(path, '/'));
-	//al_destroy_path(path);
+	al_append_path_component(path, "Resources");
+	al_append_path_component(path, "Animations");
+	al_change_directory(al_path_cstr(path, '/'));
+	al_destroy_path(path);
 
 	tImage.push_back(al_load_bitmap(directory.c_str()));
 	int width = al_get_bitmap_width(tImage[0]) / width_num;
@@ -76,6 +76,14 @@ void drawSprite(ALLEGRO_BITMAP *image, float posx, float posy, ALLEGRO_COLOR tin
 	al_draw_tinted_scaled_rotated_bitmap(image, tint, centerx, centery, posx, posy, swidth, sheight, angle, NULL);
 }
 
+float getSpriteWidth(ALLEGRO_BITMAP *image) {
+	return al_get_bitmap_width(image);
+}
+
+float getSpriteHeight(ALLEGRO_BITMAP *image) {
+	return al_get_bitmap_height(image);
+}
+
 void destroySprite(ALLEGRO_BITMAP * &image) {
 	al_destroy_bitmap(image);
 	image = nullptr;
@@ -90,11 +98,11 @@ void destroySprite(std::vector <ALLEGRO_BITMAP*> &tImage) {
 }
 
 void loadFont(ALLEGRO_FONT * &font, std::string font_name, int size) {
-	/*ALLEGRO_PATH * path = al_get_standard_path(ALLEGRO_RESOURCES_PATH);
+	ALLEGRO_PATH * path = al_get_standard_path(ALLEGRO_RESOURCES_PATH);
 	al_append_path_component(path, "Resources");
-	al_append_path_component(path, "Font");
+	al_append_path_component(path, "Fonts");
 	al_change_directory(al_path_cstr(path, '/'));
-	al_destroy_path(path);*/
+	al_destroy_path(path);
 
 	font = al_load_font(font_name.c_str(), size, NULL);
 }
@@ -113,8 +121,9 @@ void showScreen(ALLEGRO_COLOR back_color) {
 	al_clear_to_color(back_color);
 }
 
-void showScreen(ALLEGRO_COLOR back_color, int x, int y, int width, int height) {
+void showScreen(ALLEGRO_COLOR back_color, int x, int y, int width, int height, int SCREEN_WIDTH, int SCREEN_HEIGHT) {
 	al_flip_display();
 	al_set_clipping_rectangle(x, y, width, height);
 	al_clear_to_color(back_color);
+	al_set_clipping_rectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 }

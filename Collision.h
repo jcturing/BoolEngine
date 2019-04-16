@@ -13,9 +13,8 @@ bool collisionDistance(float posx, float posy, float radius, float sec_posx, flo
 //Returns true if... Recommended for perfect collisions but it might be slow. | PARAMETERS: First sprite, position x, position y, Second sprite, second position x, second position y.
 bool collisionPixel(ALLEGRO_BITMAP *image, float posx, float posy, ALLEGRO_BITMAP *sec_image, float sec_posx, float sec_posy);
 //Returns the larger of the two numbers.
-float max(float x, float y);
+float max_equal(float x, float y);
 //Returns the lower of the two numbers.
-float min(float x, float y);
-
+float min_equal(float x, float y);
 
 #endif
