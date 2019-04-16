@@ -1,6 +1,6 @@
 #ifndef SOUND_H
 #define	SOUND_H
-//PROBANDO PROBANDO..
+
 //Allegro libraries
 #include <allegro5/allegro.h>
 #include <allegro5/allegro_audio.h>
